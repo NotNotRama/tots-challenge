@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { useGetCountriesQuery, GetCountriesQuery } from '../generated/graphql';
 import dynamic from 'next/dynamic';
-import { SearchBar } from '../components/SearchBar';
+import { SearchBar } from '@/components/SearchBar';
+import { useFilteredCountries } from '@/hooks/useFilteredCountries';
 
 const Map = dynamic(() => import('../components/Map').then((mod) => mod.Map), {
   ssr: false,
@@ -9,15 +10,8 @@ const Map = dynamic(() => import('../components/Map').then((mod) => mod.Map), {
 
 export default function Home() {
   const { data, loading, error } = useGetCountriesQuery();
-  const [filteredCountries, setFilteredCountries] = useState<
-    GetCountriesQuery['countries'] | null
-  >(null);
-
-  useEffect(() => {
-    if (data && data.countries) {
-      setFilteredCountries(data.countries);
-    }
-  }, [data]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const filteredCountries = useFilteredCountries(data?.countries, searchTerm);
 
   if (loading) return <p className="text-center p-4">Loading...</p>;
   if (error)
@@ -25,26 +19,14 @@ export default function Home() {
       <p className="text-center p-4 text-red-500">Error: {error.message}</p>
     );
 
-  const handleSearch = (searchTerm: string) => {
-    if (!data) return;
-
-    const filtered = data.countries.filter(
-      (country) =>
-        country.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        country.continent.name
-          .toLowerCase()
-          .includes(searchTerm.toLowerCase()) ||
-        country.code.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredCountries(filtered);
+  const handleSearch = (term: string) => {
+    setSearchTerm(term);
   };
 
-  console.log('filteredCountries', filteredCountries);
-
   return (
-    <div className="relative">
+    <div>
       <SearchBar onSearch={handleSearch} />
-      {data && <Map filteredCountries={filteredCountries || []} />}
+      <Map filteredCountries={filteredCountries} />
     </div>
   );
 }

@@ -18,7 +18,7 @@ export function Map({ filteredCountries }: MapProps) {
   const center: LatLngExpression = [0, 0];
 
   return (
-    <MapContainer center={center} zoom={2} className="h-screen w-full">
+    <MapContainer center={center} zoom={3} className="h-screen w-full">
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
