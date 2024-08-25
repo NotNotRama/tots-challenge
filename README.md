@@ -1,40 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## TOTS challenge
 
-## Getting Started
+### Deployment
 
-First, run the development server:
+https://tots-challenge-three.vercel.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Tech used
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Nextjs
+- Graphql
+- Apollo client
+- Leaflet
+- Codegen
+- Tailwind
+- Shadcn
+- Vitest
+- RTL
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Considerations
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Accessible Inputs: The input component provided by Shadcn was chosen over the default HTML input. This decision was made to leverage Shadcn's accessibility-focused design, ensuring an inclusive user experience.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+GraphQL Code Generation: Code generation was utilized to automatically create TypeScript types and hooks from the GraphQL endpoint at https://countries.trevorblades.com/. 
+## Screenshots
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Initial load
 
-## Learn More
+![chrome_c6g8wUB3NA](https://github.com/user-attachments/assets/e8f8fc31-de26-4138-8b59-d41efef33218)
 
-To learn more about Next.js, take a look at the following resources:
+### Filter by "ar"
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![chrome_tWks1OhIiR](https://github.com/user-attachments/assets/d8e38b65-f156-4eff-9b0a-cb0e5377c5ba)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Marker info
 
-## Deploy on Vercel
+![chrome_3lzpqqzfxr](https://github.com/user-attachments/assets/065ef553-8c6d-42cf-8291-c6317bc02594)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Marker info with multiple languages
+
+![chrome_wokTXvtpV5](https://github.com/user-attachments/assets/10fa6409-f9d5-4fea-966c-b0a2e84d7ba4)
+
+### Error component
+
+![chrome_NmfMWo5dCW](https://github.com/user-attachments/assets/9caad147-f3fb-40e1-8df9-89cb38142240)
+
+
