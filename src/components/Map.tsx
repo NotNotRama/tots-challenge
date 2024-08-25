@@ -6,7 +6,7 @@ import countryCoordinates from '../../public/countryCoordinates.json';
 import markerIconUrl from '../../public/marker.png';
 
 type MapProps = {
-  countries: GetCountriesQuery['countries'];
+  filteredCountries: GetCountriesQuery['countries'];
 };
 
 const customIcon = new Icon({
@@ -14,7 +14,7 @@ const customIcon = new Icon({
   iconSize: [20, 20],
 });
 
-export function Map({ countries }: MapProps) {
+export function Map({ filteredCountries }: MapProps) {
   const center: LatLngExpression = [0, 0];
 
   return (
@@ -23,7 +23,7 @@ export function Map({ countries }: MapProps) {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {countries.map((country) => {
+      {filteredCountries.map((country) => {
         const coordinateInfo = countryCoordinates.find(
           (c) => c['ISO Code'] === country.code
         );
