@@ -25,17 +25,17 @@ export type Continent = {
 };
 
 export type ContinentFilterInput = {
-  code?: InputMaybe<StringQueryOperatorInput>;
+  code: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type Country = {
   __typename?: 'Country';
   awsRegion: Scalars['String']['output'];
-  capital?: Maybe<Scalars['String']['output']>;
+  capital: Maybe<Scalars['String']['output']>;
   code: Scalars['ID']['output'];
   continent: Continent;
   currencies: Array<Scalars['String']['output']>;
-  currency?: Maybe<Scalars['String']['output']>;
+  currency: Maybe<Scalars['String']['output']>;
   emoji: Scalars['String']['output'];
   emojiU: Scalars['String']['output'];
   languages: Array<Language>;
@@ -49,14 +49,14 @@ export type Country = {
 
 
 export type CountryNameArgs = {
-  lang?: InputMaybe<Scalars['String']['input']>;
+  lang: InputMaybe<Scalars['String']['input']>;
 };
 
 export type CountryFilterInput = {
-  code?: InputMaybe<StringQueryOperatorInput>;
-  continent?: InputMaybe<StringQueryOperatorInput>;
-  currency?: InputMaybe<StringQueryOperatorInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
+  code: InputMaybe<StringQueryOperatorInput>;
+  continent: InputMaybe<StringQueryOperatorInput>;
+  currency: InputMaybe<StringQueryOperatorInput>;
+  name: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type Language = {
@@ -68,16 +68,16 @@ export type Language = {
 };
 
 export type LanguageFilterInput = {
-  code?: InputMaybe<StringQueryOperatorInput>;
+  code: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type Query = {
   __typename?: 'Query';
-  continent?: Maybe<Continent>;
+  continent: Maybe<Continent>;
   continents: Array<Continent>;
   countries: Array<Country>;
-  country?: Maybe<Country>;
-  language?: Maybe<Language>;
+  country: Maybe<Country>;
+  language: Maybe<Language>;
   languages: Array<Language>;
 };
 
@@ -113,30 +113,30 @@ export type QueryLanguagesArgs = {
 
 export type State = {
   __typename?: 'State';
-  code?: Maybe<Scalars['String']['output']>;
+  code: Maybe<Scalars['String']['output']>;
   country: Country;
   name: Scalars['String']['output'];
 };
 
 export type StringQueryOperatorInput = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  in?: InputMaybe<Array<Scalars['String']['input']>>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  nin?: InputMaybe<Array<Scalars['String']['input']>>;
-  regex?: InputMaybe<Scalars['String']['input']>;
+  eq: InputMaybe<Scalars['String']['input']>;
+  in: InputMaybe<Array<Scalars['String']['input']>>;
+  ne: InputMaybe<Scalars['String']['input']>;
+  nin: InputMaybe<Array<Scalars['String']['input']>>;
+  regex: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Subdivision = {
   __typename?: 'Subdivision';
   code: Scalars['ID']['output'];
-  emoji?: Maybe<Scalars['String']['output']>;
+  emoji: Maybe<Scalars['String']['output']>;
   name: Scalars['String']['output'];
 };
 
 export type GetCountriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetCountriesQuery = { __typename?: 'Query', countries: Array<{ __typename?: 'Country', code: string, name: string, capital?: string | null, emoji: string, languages: Array<{ __typename?: 'Language', name: string }>, continent: { __typename?: 'Continent', name: string } }> };
+export type GetCountriesQuery = { __typename?: 'Query', countries: Array<{ __typename?: 'Country', code: string, name: string, capital: string | null, emoji: string, languages: Array<{ __typename?: 'Language', name: string }>, continent: { __typename?: 'Continent', name: string } }> };
 
 
 export const GetCountriesDocument = gql`
