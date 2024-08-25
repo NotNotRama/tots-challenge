@@ -11,10 +11,5 @@ export default function Home() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  return (
-    <div>
-      <h1>Country Map</h1>
-      {data && <Map countries={data.countries} />}
-    </div>
-  );
+  return <div>{data && <Map countries={data.countries} />}</div>;
 }
