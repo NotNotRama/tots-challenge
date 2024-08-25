@@ -16,14 +16,9 @@ const customIcon = new Icon({
 
 export function Map({ countries }: MapProps) {
   const center: LatLngExpression = [0, 0];
-  console.log('countries', countries);
 
   return (
-    <MapContainer
-      center={center}
-      zoom={2}
-      style={{ height: '100vh', width: '100%' }}
-    >
+    <MapContainer center={center} zoom={2} className="h-screen w-full">
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -42,12 +37,18 @@ export function Map({ countries }: MapProps) {
           return (
             <Marker key={country.code} position={position} icon={customIcon}>
               <Popup>
-                <div>
-                  <h3>{country.name}</h3>
-                  <p>Capital: {country.capital || 'N/A'}</p>
-                  <p>Continent: {country.continent.name}</p>
+                <div className="text-sm">
+                  <h3 className="font-bold text-lg mb-2">{country.name}</h3>
                   <p>
-                    Languages:{' '}
+                    <span className="font-semibold">Capital:</span>{' '}
+                    {country.capital || 'N/A'}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Continent:</span>{' '}
+                    {country.continent.name}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Languages:</span>{' '}
                     {country.languages.map((lang) => lang.name).join(', ')}
                   </p>
                 </div>
