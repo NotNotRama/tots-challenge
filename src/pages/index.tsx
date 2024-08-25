@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { useGetCountriesQuery, GetCountriesQuery } from '../generated/graphql';
 import dynamic from 'next/dynamic';
 import { SearchBar } from '@/components/SearchBar';
