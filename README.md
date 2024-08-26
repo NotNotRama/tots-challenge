@@ -27,6 +27,10 @@ GraphQL Code Generation: Code generation was utilized to automatically create Ty
 
 ![chrome_c6g8wUB3NA](https://github.com/user-attachments/assets/e8f8fc31-de26-4138-8b59-d41efef33218)
 
+### Responsive (map will focus on South America on mobile)
+
+![chrome_ufL2kpPDHG](https://github.com/user-attachments/assets/91eeb7f7-9500-4152-b33f-38b253e8d590)
+
 ### Filter by "ar"
 
 ![chrome_tWks1OhIiR](https://github.com/user-attachments/assets/d8e38b65-f156-4eff-9b0a-cb0e5377c5ba)
@@ -43,5 +47,6 @@ GraphQL Code Generation: Code generation was utilized to automatically create Ty
 ### Error component
 
 ![chrome_NmfMWo5dCW](https://github.com/user-attachments/assets/9caad147-f3fb-40e1-8df9-89cb38142240)
+
 
 
