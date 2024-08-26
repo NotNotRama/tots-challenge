@@ -1,9 +1,12 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { useState, useEffect } from 'react';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import { Icon, LatLngExpression } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { GetCountriesQuery } from '../generated/graphql';
 import countryCoordinates from '../../public/countryCoordinates.json';
 import markerIconUrl from '../../public/marker.png';
+import { useIsMobile } from '../hooks/useIsMobile';
+import { MapCenter } from './map-center';
 
 type MapProps = {
   filteredCountries: GetCountriesQuery['countries'];
@@ -15,10 +18,15 @@ const customIcon = new Icon({
 });
 
 export function Map({ filteredCountries }: MapProps) {
-  const center: LatLngExpression = [0, 0];
+  const isMobile = useIsMobile();
 
   return (
-    <MapContainer center={center} zoom={3} className="h-screen w-full">
+    <MapContainer
+      center={[0, 0]}
+      zoom={isMobile ? 3 : 2}
+      className="h-screen w-full"
+    >
+      <MapCenter />
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
